@@ -155,15 +155,15 @@ export default function BlogPage() {
           <div style={{ marginTop: '40px' }} className="right-customheading">
             <h2>Agents List</h2>
 
-            
+            <a href="/agents/antoine-mouille" className="agent-anchor">
               <div className="right-column-one">
-              <a href="/agents/antoine-mouille" className="agent-anchor">  <Image
+                <Image
                   src={imglogo}
                   alt="imglogo"
                   className="property-image"
                   width="100"
                   height="100"
-                /></a>
+                />
                 <h3 style={{ color: "#000" }}>Antoine Mouille</h3>
                 <a href="mailto:antoine@ap-natai.com" style={{ lineHeight: "35px", color: "#000" }}>
                   antoine@ap-natai.com
@@ -173,17 +173,17 @@ export default function BlogPage() {
                   +66 (0) 81 979 9307
                 </a>
               </div>
-           
+            </a>
 
-              <div className="right-column-one">
             <a href="/agents/lou-mouille" className="agent-anchor" style={{ marginTop: '20px', display: 'block' }}>
+              <div className="right-column-one">
                 <Image
                   src={imglogo}
                   alt="imglogo"
                   className="property-image"
                   width="100"
                   height="100"
-                /></a>
+                />
                 <h3 style={{ color: "#000" }}>Lou Mouille</h3>
                 <a href="mailto:lou@ap-natai.com" style={{ lineHeight: "35px", color: "#000" }}>
                   lou@ap-natai.com
@@ -193,7 +193,7 @@ export default function BlogPage() {
                   +66 (0) 98 021 8331
                 </a>
               </div>
-           
+            </a>
           </div>
         </div>
       </section>

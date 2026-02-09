@@ -36,9 +36,31 @@ const Banner = () => {
 
   // For Rent form states
   const [rentType, setRentType] = useState('');
-  const [checkin, setCheckin] = useState('2025-09-15');
+  const [checkin, setCheckin] = useState('');  // ✅ Changed to empty
   const [checkout, setCheckout] = useState('');
   const [rentGuests, setRentGuests] = useState('6');
+
+  // ✅ Calculate today's date and tomorrow's date for min values
+  const getTodayDate = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today.toISOString().split('T')[0];
+  };
+
+  const getTomorrowDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
+  // ✅ Set initial future dates on component mount
+  useEffect(() => {
+    const today = getTodayDate();
+    const tomorrow = getTomorrowDate();
+    setCheckin(today);
+    setCheckout(tomorrow);
+  }, []);
 
   // FETCH PROPERTY TYPES
   useEffect(() => {
@@ -191,7 +213,7 @@ const Banner = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         transition: 'background-image 1s ease-in-out',
-        height:'83vh',
+        height: '83vh',
       }}
     >
       <div className="overlay"></div>
@@ -220,12 +242,22 @@ const Banner = () => {
             <div className="date-row">
               <div className="date-field">
                 <label>Check-in Date</label>
-                <input type="date" value={checkin} onChange={(e) => setCheckin(e.target.value)} />
+                <input 
+                  type="date" 
+                  value={checkin} 
+                  min={getTodayDate()}  // ✅ Only future dates
+                  onChange={(e) => setCheckin(e.target.value)} 
+                />
               </div>
 
               <div className="date-field">
                 <label>Check-out Date</label>
-                <input type="date" value={checkout} onChange={(e) => setCheckout(e.target.value)} />
+                <input 
+                  type="date" 
+                  value={checkout} 
+                  min={checkin || getTomorrowDate()}  // ✅ After check-in date
+                  onChange={(e) => setCheckout(e.target.value)} 
+                />
               </div>
             </div>
 
@@ -268,14 +300,6 @@ const Banner = () => {
         <div className="center-text banner-center-text fade-in">
           <h2>{staticBanner.titleSmall}</h2>
           <h1>{staticBanner.titleLarge}</h1>
-
-          {/* {staticBanner.buttonLink ? (
-            <a href={staticBanner.buttonLink} target="_blank" rel="noopener noreferrer">
-              <button className="learn-more">{staticBanner.buttonText}</button>
-            </a>
-          ) : (
-            <button className="learn-more">{staticBanner.buttonText}</button>
-          )} */}
         </div>
 
         {/* RIGHT FORM (For Sale) */}

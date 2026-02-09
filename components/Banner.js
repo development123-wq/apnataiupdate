@@ -20,27 +20,50 @@ const Banner = () => {
   // ---------------------------
   const [type, setType] = useState('');
   const [locationId, setLocationId] = useState('');
-  const [landSize, setLandSize] = useState('');        // now dynamic
-  const [budget, setBudget] = useState('');            // now dynamic
+  const [landSize, setLandSize] = useState('');        
+  const [budget, setBudget] = useState('');            
 
   // ✅ For Sale API lists
-  const [saleBudgets, setSaleBudgets] = useState([]);  // [{min,max}, ...]
-  const [landSizes, setLandSizes] = useState([]);      // [76576, 76777, ...]
+  const [saleBudgets, setSaleBudgets] = useState([]);  
+  const [landSizes, setLandSizes] = useState([]);      
 
   // ---------------------------
   // For Rent budgets (API)
   // ---------------------------
   const [rentBudgets, setRentBudgets] = useState([]);
-  const [rentBudget, setRentBudget] = useState(''); // "17500-18500"
+  const [rentBudget, setRentBudget] = useState(''); 
 
   // ---------------------------
   // For Rent form states (query params)
   // ---------------------------
   const [rentType, setRentType] = useState('');
-  const [checkin, setCheckin] = useState('2025-09-15');
-  const [checkout, setCheckout] = useState(''); // empty => URL me "&checkout"
+  const [checkin, setCheckin] = useState('');  // ✅ Changed to empty
+  const [checkout, setCheckout] = useState(''); 
   const [rentGuests, setRentGuests] = useState('6');
 
+  // ✅ Calculate today's date and tomorrow's date for min values
+  const getTodayDate = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today.toISOString().split('T')[0];
+  };
+
+  const getTomorrowDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
+  // Set initial future dates on component mount
+  useEffect(() => {
+    const today = getTodayDate();
+    const tomorrow = getTomorrowDate();
+    setCheckin(today);
+    setCheckout(tomorrow);
+  }, []);
+
+  // Rest of your existing useEffects remain same...
   // ------------------------------------------------------------------
   // FETCH PROPERTY TYPES
   // ------------------------------------------------------------------
@@ -188,7 +211,7 @@ const Banner = () => {
           'https://techzenondev.com/apnatai/api/land-size/1/edit'
         );
 
-        const sizesArr = res?.data?.data?.sizes; // you shared: data.sizes [web:71]
+        const sizesArr = res?.data?.data?.sizes;
 
         if (Array.isArray(sizesArr)) {
           setLandSizes(sizesArr);
@@ -313,6 +336,7 @@ const Banner = () => {
                 <input
                   type="date"
                   value={checkin}
+                  min={getTodayDate()}  // ✅ Only future dates
                   onChange={(e) => setCheckin(e.target.value)}
                 />
               </div>
@@ -322,6 +346,7 @@ const Banner = () => {
                 <input
                   type="date"
                   value={checkout}
+                  min={checkin || getTomorrowDate()}  // ✅ After check-in date
                   onChange={(e) => setCheckout(e.target.value)}
                 />
               </div>
@@ -389,7 +414,7 @@ const Banner = () => {
           )}
         </div>
 
-        {/* RIGHT FORM (For Sale) */}
+        {/* RIGHT FORM (For Sale) - unchanged */}
         <div className="form-box">
           <div className="form-title form-title-two">
             <p className="rent-label">For Sale</p>

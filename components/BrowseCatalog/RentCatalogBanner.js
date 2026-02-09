@@ -12,7 +12,7 @@ const Banner = () => {
     titleSmall: '',
     titleLarge: 'For Rent Property',
     buttonText: 'Learn More',
-    buttonLink: '/contact', // e.g. 'https://example.com' (optional)
+    buttonLink: '/contact', // e.g. 'https://techzenondev.com/apnatai/api/property-types?page=1' (optional)
   };
 
   // Dropdown Data (For Rent)
@@ -24,9 +24,31 @@ const Banner = () => {
 
   // For Rent form states
   const [rentType, setRentType] = useState('');
-  const [checkin, setCheckin] = useState('2025-09-15');
+  const [checkin, setCheckin] = useState('');  // ✅ Changed to empty
   const [checkout, setCheckout] = useState('');
   const [rentGuests, setRentGuests] = useState('6');
+
+  // ✅ Calculate today's date and tomorrow's date for min values
+  const getTodayDate = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today.toISOString().split('T')[0];
+  };
+
+  const getTomorrowDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
+  // ✅ Set initial future dates on component mount
+  useEffect(() => {
+    const today = getTodayDate();
+    const tomorrow = getTomorrowDate();
+    setCheckin(today);
+    setCheckout(tomorrow);
+  }, []);
 
   // FETCH PROPERTY TYPES (used in rent form)
   useEffect(() => {
@@ -147,6 +169,7 @@ const Banner = () => {
                 <input
                   type="date"
                   value={checkin}
+                  min={getTodayDate()}  // ✅ Only future dates
                   onChange={(e) => setCheckin(e.target.value)}
                 />
               </div>
@@ -156,6 +179,7 @@ const Banner = () => {
                 <input
                   type="date"
                   value={checkout}
+                  min={checkin || getTomorrowDate()}  // ✅ After check-in date
                   onChange={(e) => setCheckout(e.target.value)}
                 />
               </div>

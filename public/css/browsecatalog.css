@@ -222,3 +222,7 @@ grid-template-columns: repeat(3, 1fr);
   box-shadow: 0px 0px 10px #dcdcdc;
 
 }
+
+.property-title-link:hover h3{
+  color: #00e2ee!important;;
+}

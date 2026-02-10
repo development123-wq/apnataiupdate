@@ -18,12 +18,6 @@ const ForRental = () => {
     <Header/>
     <Banner/>
     <ForRentals/>
-
-
-
-
-
-
     <Footer/>
     </>
   );

@@ -142,7 +142,8 @@ const stripHtml = (html) => {
                 />
 
                 <div className="catalog-card-content">
-                  <h3 style={{ marginBottom: "10px" }}>{item.title}</h3>
+                  <a className="property-title-link" href={`/property/${item.slug}`} >
+                  <h3 style={{ marginBottom: "10px" }}>{item.title}</h3></a>
 
                   {/* ✅ Description thoda bada (approx 2 lines more) */}
                   <p className="catalog-desc">

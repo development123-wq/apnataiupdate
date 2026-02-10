@@ -17,12 +17,6 @@ const BrowseCataloge = () => {
     <Header/>
   <Banner/>
     <BrowseCatalog/>
-
-
-
-
-
-
     <Footer/>
     </>
   );

@@ -76,7 +76,7 @@ export default function BrowseCatalog() {
   return (
     <>
       {/* MAIN PROPERTY LIST */}
-      <section className="catalog-section" style={{ background: "#fff" }}>
+      <section className="catalog-section" style={{ background: "#fff",maxWidth:'1200px',margin:'auto' }}>
         <div className="left-column">
           <h2
             style={{
@@ -101,7 +101,8 @@ export default function BrowseCatalog() {
                 />
 
                 <div className="catalog-card-content">
-                  <h3 style={{marginBottom:'10px'}}>{item.title}</h3>
+                  <a className="property-title-link" href={`/property/${item.slug}`} >
+                  <h3 style={{marginBottom:'10px'}}>{item.title}</h3></a>
 
                   <p className="catalog-desc">
                     {stripHtml(item.description).substring(0, 80)}...

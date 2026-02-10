@@ -17,12 +17,6 @@ const ForRealEstates = () => {
     <Header/>
     <Banner/>
     <ForRealEstate/>
-
-
-
-
-
-
     <Footer/>
     </>
   );

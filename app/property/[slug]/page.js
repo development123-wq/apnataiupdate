@@ -129,7 +129,7 @@ export default async function PropertyDetail(context) {
           </div>
           <a
             style={{
-              background: "#ff5722",
+              background: "#00e2ee",
               color: "#fff",
               padding: "10px 25px",
               borderRadius: "6px",

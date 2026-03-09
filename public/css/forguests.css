@@ -312,3 +312,116 @@ text-align: center;
     margin-bottom:20px !important;
     font-size:20px !important;
   }
+
+
+
+
+  /* extra */
+
+  /* Container styling */
+.custom-business-section {
+  padding: 60px 10% !important;
+  background-color: #ffffff !important;
+  display: block !important;
+}
+
+/* Hero Section (Top) */
+.custom-business-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 50px !important;
+  margin-bottom: 50px !important;
+}
+
+.custom-business-image {
+  flex: 1 !important;
+}
+
+.custom-main-hero-img {
+  border-radius: 40px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.custom-business-content {
+  flex: 1 !important;
+}
+
+.custom-title-text {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  text-transform: lowercase !important; /* Image me lowercase hai */
+  margin-bottom: 20px !important;
+  line-height: 1.1 !important;
+  color: #1a1a1a !important;
+}
+
+.custom-description {
+  color: #000000 !important;
+  font-size: 16px!important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+  max-width: 500px !important;
+}
+
+/* Dark Button */
+.custom-letstalk-btn {
+  background-color: #181828 !important;
+  color: white !important;
+  padding: 10px 40px !important;
+  border: none !important;
+  border-radius: 0px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+/* Cards Section (Bottom) */
+.custom-business-bottom {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 25px !important;
+}
+
+.custom-bottom-card {
+  background-color: #0f121d !important;
+  padding: 40px 30px !important;
+  border-radius: 25px !important;
+  color: white !important;
+  border-top: 10px solid #00e5ff !important; /* Cyan bottom border */
+}
+
+.custom-card-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.custom-card-header h3 {
+  font-size: 1.3rem !important;
+  margin: 0 !important;
+  letter-spacing: 1px !important;
+}
+
+.custom-icon-cyan {
+  color: #00e5ff !important;
+  font-size: 1.8rem !important;
+}
+
+.custom-bottom-card p {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #c4c4c4 !important;
+}
+
+/* Responsive Mobile Fix */
+@media (max-width: 992px) {
+  .custom-business-top {
+    flex-direction: column !important;
+  }
+  .custom-business-bottom {
+    grid-template-columns: 1fr !important;
+  }
+}

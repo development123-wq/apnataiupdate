@@ -110,10 +110,15 @@ const PropertyCard = () => {
       </div>
 
       <div className="property-container custom-sec-two">
-        <div className="fancy-mainheading fancy-mainheading-two" style={{ background: "none" }}>
-          <h2 className="typing-text">
+        <div className="fancy-mainheading fancy-mainheading-two fancy-mainheading-twotwo" style={{ background: "none",paddingTop:'0px',paddingBottom:'30px' }}>
+          <h2 className="typing-texts" style={{width:'100%'}}>
             <AfterTwoWordsAccent text={heading} accentColor="#00e2ee" />
-          </h2>
+          </h2><br></br>
+            <p style={{color:'#fff',textAlign:'center',width:'1000px',margin:'auto'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but the leap into electronic unchanged.</p>
+            <a href="#" className="banner-btn" style={{background:'none',marginTop:'20px',border:'2px solid #fff',borderRadius:'100px'}}>
+          Contact Us Today
+        </a>
+
         </div>
 
         {cards.map((property) => {
@@ -162,7 +167,7 @@ const PropertyCard = () => {
                       className={`read-more-btn ${showMore[property.id] ? "collapsed" : ""}`}
                       onClick={() => handleToggle(property.id)}
                     >
-                      {showMore[property.id] ? "Show Less" : "Read More"}
+                      {showMore[property.id] ? "Show Less" : "Learn More"}
                     </button>
                   </>
                 )}

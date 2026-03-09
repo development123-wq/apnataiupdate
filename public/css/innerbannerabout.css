@@ -44,3 +44,11 @@
 .banner-btn:hover {
   background-color: #e75a29;
 }
+
+
+/* extra */
+
+.inner-banner-new-three .about-title,.inner-banner-new-three .about-description{
+  color:#fff !important;
+  text-align:center;
+}

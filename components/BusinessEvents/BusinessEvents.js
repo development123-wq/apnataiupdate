@@ -1,48 +1,83 @@
 import React from "react";
 import Image from "next/image";
-import aboutimg from "../../public/images/images/viva2.jpg";
+import aboutimg from "../../public/images/images/viva23.png";
+import eclipse1 from '../../public/images/icons/eclipse1.png';
+import eclipse2 from '../../public/images/icons/eclipse2.png';
+import eclipse3 from '../../public/images/icons/eclipse3.png';
+
 import "../../public/css/businessevents.css";
 
 const BusinessEvents = () => {
   return (
-    <section className="events-section">
-      <div className="events-header">
-        <h1>
-          Seafront Villas for Rent in Natai,{" "}
-          <span className="highlight"> Phang-nga</span> 
+    <section className="custom-events-section">
+      {/* Header Section */}
+      <div className="custom-events-header">
+        <h1 className="custom-event-title">
+          Seafront villas for rent in <br/>
+          natai, <span className="custom-highlight">phang-nga</span>
         </h1>
-        <p className="description-custom">
-          Experience luxury at its finest as you explore properties for sale in Natai, Phang-nga. Every estate presented by AP Natai is a testament to elegance, luxury, and architectural prowess.
-        </p>
       </div>
 
-      <div className="events-body">
-        {/* Left image */}
-        <div className="events-image">
-          <Image src={aboutimg} alt="Business meeting" width={600} height={400} /><br/><br/>
-           <button className="learn-btn">Get A Free Consultation</button>
+      {/* Main Large Image */}
+      <div className="custom-events-image-container">
+        <Image 
+          src={aboutimg} 
+          alt="Luxury Villa Interior" 
+          width={1200} 
+          height={600} 
+          className="custom-event-main-img"
+        />
+      </div>
+
+      {/* Bottom 3 Columns Section */}
+      <div className="custom-events-footer-grid">
+        <div className="custom-footer-card">
+          <div className="custom-footer-icon">
+            <span className="custom-circle-icon"><Image 
+                        src={eclipse1} 
+                        alt="Luxury Pool" 
+                         width={50} 
+                        height='auto' 
+                      /></span>
+          </div>
+          <div className="custom-footer-text">
+            <h3>Your seaside sanctuary with ap natai</h3>
+            <p>
+              Lorem Ipsum is simply dummy text of the unknown to printer to printing and typesetting printer printing industry.
+            </p>
+          </div>
         </div>
 
-        {/* Right content */}
-        <div className="events-right">
-          <div className="event-card">
-            <h3>Your Seaside Sanctuary with AP Natai</h3>
+        <div className="custom-footer-card">
+          <div className="custom-footer-icon">
+            <span className="custom-circle-icon"><Image 
+                        src={eclipse2} 
+                        alt="Luxury Pool" 
+                         width={50} 
+                        height='auto' 
+                      /></span>
+          </div>
+          <div className="custom-footer-text">
+            <h3>A rental experience like no other</h3>
             <p>
-              If renting a seafront villa in Natai, Phang-nga is on your mind, look no further than AP Natai. Our selection of luxury rental properties ensures that you find a haven that mirrors your dream seaside sanctuary.
+              Lorem Ipsum is simply dummy text of the unknown to printer to printing and typesetting printer printing industry.
             </p>
           </div>
+        </div>
 
-          <div className="event-card">
-            <h3>A Rental Experience Like No Other</h3>
-            <p>
-              With AP Natai, renting a seafront villa is an experience in itself. We go beyond just offering properties; we offer homes that resonate with your vision of beachside luxury, ensuring that every moment spent is a memory cherished.
-            </p>
+        <div className="custom-footer-card">
+          <div className="custom-footer-icon">
+            <span className="custom-circle-icon"><Image 
+                        src={eclipse3} 
+                        alt="Luxury Pool" 
+                         width={50} 
+                        height='auto' 
+                      /></span>
           </div>
-
-          <div className="event-card">
-            <h3>Your Trusted Partner in Natai Beachfront Rentals</h3>
+          <div className="custom-footer-text">
+            <h3>Your trusted partner in natai beachfront rentals</h3>
             <p>
-              Having been established in 2005, AP Natai stands as a beacon of trust when it comes to seafront villa rentals in Natai, Phang-nga. Our legacy combined with our unparalleled local insights makes us the first choice for discerning renters.
+              Lorem Ipsum is simply dummy text of the unknown to printer to printing and typesetting printer printing industry.
             </p>
           </div>
         </div>

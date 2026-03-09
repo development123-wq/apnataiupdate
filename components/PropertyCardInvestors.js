@@ -101,8 +101,8 @@ const PropertyCard = () => {
 
   return (
     <>
-      {/* Banner with black overlay */}
-      <div className="image-guest" style={{ position: "relative",marginTop:'40px' }}>
+      {/* Banner with black overlay + Content */}
+      <div className="image-guest custom-image-guest" style={{ position: "relative", marginTop: '0px' }}>
         {heroImg ? (
           <>
             <Image
@@ -116,10 +116,59 @@ const PropertyCard = () => {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "rgba(0,0,0,0.35)",
+                background: "rgba(0, 0, 0, 0.73)",
                 zIndex: 2,
               }}
             />
+            {/* ✅ Added heading, paragraph, and button inside banner */}
+            <div style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 3,
+              textAlign: "center",
+              color: "white",
+              maxWidth: "1200px",
+              width:'100%',
+              padding: "0 20px"
+            }}>
+              <h1 style={{
+                fontSize: "40px",
+                fontWeight: "bold",
+                marginBottom: "20px",
+                lineHeight: "1.2"
+              }}>
+                Diversify your <span style={{color:'#00E2EE'}}>real estate</span> journey
+              </h1>
+              <p style={{
+                fontSize: "16px",
+                marginBottom: "30px",
+                lineHeight: "1.6",
+                opacity: 1,
+                fontWeight:'400',
+                textAlign:'center'
+              }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but the leap into electronic unchanged.
+              </p>
+              <button style={{
+                background: "none",
+                color: "white",
+                border: "none",
+                padding: "12px 40px",
+                fontSize: "20px",
+                fontWeight: "500",
+                borderRadius: "50px",
+                cursor: "pointer",
+                border:'2px solid #ffffff',
+                transition: "all 0.3s ease",
+                
+              }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Explore Properties
+              </button>
+            </div>
           </>
         ) : (
           <p></p>
@@ -134,17 +183,17 @@ const PropertyCard = () => {
           zIndex: 5,
           marginTop: "-120px",  // overlap amount (adjust)
           paddingTop: "120px", 
-          background:'none!important'
+          background: 'none!important'
         }}
       >
         {/* Heading only if exists */}
-        {heading ? (
+        {/* {heading ? (
           <div className="fancy-mainheading fancy-mainheading-two" style={{ background: "none" }}>
             <h2 className="typing-text">
               <AfterTwoWordsAccent text={heading} accentColor="#00e2ee" />
             </h2>
           </div>
-        ) : null}
+        ) : null} */}
 
         {cards.map((property) => {
           const imgSrc = property.image ? `${IMAGE_BASE}${property.image}` : null;
@@ -152,7 +201,7 @@ const PropertyCard = () => {
           const rest = property.listItems.slice(3);
 
           return (
-            <div className="property-card" key={property.id}>
+            <div className="property-card property-card-new" key={property.id}>
               <div className="image-wrapper">
                 {imgSrc ? (
                   <Image

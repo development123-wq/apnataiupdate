@@ -37,8 +37,9 @@ const InnerBanner = ({ title, buttonText = "Get a Consultant", buttonLink = "/co
   return (
     <section className="inner-banner">
       <div className="banner-overlay">
-        <h1 className="banner-title">{title || pageTitle}</h1>
-        <a href={buttonLink} className="banner-btn">
+        <h5 className="banner-title" style={{fontSize:'15px',fontWeight:'400'}}>{title || pageTitle}</h5>
+        <h1 className="banner-title">Natai Phang Nga</h1>
+        <a href={buttonLink} className="banner-btn" style={{background:'none',border:'2px solid #fff',borderRadius:'100px'}}>
           {buttonText}
         </a>
       </div>

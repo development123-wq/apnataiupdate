@@ -1,0 +1,95 @@
+/* Container styling */
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 500px;
+  background-color: #12141d; /* Dark background from image */
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Image styling - Changed to exactly 50% */
+.image-section {
+  flex: 0 0 50%; /* Strictly 50% width */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content styling - Changed to exactly 50% */
+.content-section {
+  flex: 0 0 50%; /* Strictly 50% width */
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box; /* Ensures padding doesn't push width past 50% */
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.highlight-text {
+  color: #00bcd4; /* Cyan color from image */
+}
+
+.description {
+  font-size: 16px;
+  color: #FFFFFF; 
+  line-height: 22px;
+  margin-bottom: 10px;
+  max-width: 90%;
+}
+
+/* Button styling */
+.read-more-btn {
+  background: none !important;
+  color: white;
+  border: 1.5px solid white !important;
+  padding: 10px 35px;
+  width: 150px;
+  text-align: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: white !important;
+  color: #12141d !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+  }
+  
+  .image-section, 
+  .content-section {
+    flex: 0 0 100%; /* Full width on mobile */
+  }
+  
+  .image-section {
+    height: 300px;
+  }
+  
+  .content-section {
+    padding: 30px;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+}

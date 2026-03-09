@@ -32,7 +32,7 @@
 .about-image img {
   width: 100%;
   border-radius: 20px;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .about-content {
@@ -102,7 +102,7 @@
   font-size: 16px !important;
     line-height: 25px!important;
     color:#000 !important;
-    margin-bottom:20px !important;
+    margin-bottom:10px !important;
 }
 
 .about-section-extra-custom{
@@ -111,4 +111,304 @@
 .about-section-extra-custom2{
   padding-top:10px !important;
   padding-bottom:50px !important;
+}
+
+
+/* extra css */
+
+.custom-about-section {
+  position: relative;
+  padding: 100px 0%;
+  background: #fff;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.custom-about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Left Content */
+.custom-about-content {
+  flex: 1;
+}
+
+.custom-about-subtitle {
+  color: #00E2EE;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.custom-about-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+  margin-bottom: 25px;
+}
+
+.custom-about-highlight {
+  color: #00E2EE;
+}
+
+.custom-about-desc {
+  color: #000000AD;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.custom-about-list {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-about-list li {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000AD;
+  margin-bottom: 10px;
+}
+
+/* extra */
+
+.about-natai-akash{
+
+font-size: 20px;
+line-height: 134%;
+letter-spacing: 0%;
+color:#00E2EE !important;
+
+}
+.custom-check {
+  color: #00E2EE;
+  font-weight: 900;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* Image Wrapper & Decorative Shapes */
+.custom-about-image-wrapper {
+  flex: 1.1;
+  position: relative;
+  padding: 0px;
+}
+
+.custom-image-card {
+  position: relative;
+ border-radius:0px !important;
+  overflow: hidden;
+  z-index: 2;
+ 
+}
+
+.custom-img {
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+
+/* Decorative Cyan Bar (Far Left) */
+.custom-deco-left-bar {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 35px;
+  height: 70%;
+  background: #00E2EE;
+}
+
+/* Top Decorative Elements */
+.custom-deco-top-line {
+  position: absolute;
+  top: -40px;
+  right: 150px;
+  width: 3px;
+  height: 100px;
+  background: #00E2EE;
+}
+
+.custom-deco-dots {
+  position: absolute;
+  right: -20px;
+  top: 30%;
+  width: 10px;
+  height: 100px;
+  background-image: radial-gradient(#00E2EE 2px, transparent 2px);
+  background-size: 10px 15px;
+  z-index: 1;
+}
+
+/* Bottom Decorative Shapes (Bottom Right) */
+.custom-deco-bottom-right {
+  position: absolute;
+  bottom: -30px;
+  right: -10px;
+  width: 100px;
+  height: 100px;
+  background: #00E2EE;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.custom-deco-bottom-box {
+  position: absolute;
+  bottom: -10px;
+  right: 60px;
+  width: 150px;
+  height: 80px;
+  background: #0096B4; /* Slightly darker cyan like the image overlay */
+  border-radius: 20px;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .custom-about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  .custom-about-list li { justify-content: center; }
+  .custom-deco-left-bar, .custom-deco-dots { display: none; }
+}
+
+/* natai development */
+
+/* --- AP Natai Role Section Styles --- */
+.custom-aprole-section {
+  position: relative;
+  padding: 80px 5%;
+  background-color: #f4f4f4; /* Page base */
+  overflow: hidden;
+}
+
+/* Background Gray Shape #f4f4f4 */
+.custom-aprole-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+  z-index: 0;
+  /* Top se thoda gap dene ke liye clip-path ya height use kar sakte hain */
+  clip-path: inset(10% 0 0 0); 
+}
+
+.custom-aprole-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Image Side */
+.custom-aprole-image-side {
+  flex: 1.1;
+}
+
+.custom-aprole-card {
+  border-radius: 50px; /* Large rounded corners from screenshot */
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.custom-aprole-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Content Side */
+.custom-aprole-content-side {
+  flex: 1;
+}
+
+.custom-aprole-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.custom-aprole-square {
+  width: 12px;
+  height: 12px;
+  background-color: #00E2EE;
+}
+
+.custom-aprole-badge-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3C3C3C;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.custom-aprole-title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.custom-cyan-highlight {
+  color: #00E2EE;
+}
+
+.custom-aprole-desc {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .custom-aprole-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  .custom-aprole-badge {
+    justify-content: center;
+  }
+}
+
+.investors-ddmore{
+  width: 170;
+height: 40;
+opacity: 1;
+background:#000;
+padding:15px 40px;
+color:#fff;
+border-radius: 23px;
+
+}
+
+/* vision mission */
+
+
+.custom-vm-html h2,.custom-vm-html p{
+  color:#ffffff !important;
+}
+
+.about-natai-akash{
+  margin-bottom:10px !important;
+  color:#00e2ee !important;
+  font-weight:600 !important;
 }

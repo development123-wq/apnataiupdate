@@ -9,7 +9,9 @@ import Footer from '../../components/Footer';
 import InnerBanner from '../../components/InnerBanner';
 import ForRentals from '../../components/ForOwners/ForGuests';
 import BusinessEvents from '../../components/OwnersBusinessEvents/BusinessEvents';
-import Card from "../../components/PropertyCardGuests";
+import Card from "../../components/PropertyCardInvestors";
+import ContentInvestors from '../../components/ForOwners/contentInvestors';
+
 
 
 const ForRental = () => {
@@ -18,6 +20,7 @@ const ForRental = () => {
     <Header/>
     <InnerBanner/>
     <ForRentals/>
+    <ContentInvestors/>
     <BusinessEvents/>
     <Card/>
 

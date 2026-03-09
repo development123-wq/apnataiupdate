@@ -1,0 +1,104 @@
+.custom-mgmt-section {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.custom-mgmt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Heading Styles */
+.custom-mgmt-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 50px;
+    line-height: 1.2;
+    width:600px;
+    margin:auto;
+    padding-bottom:40px;
+}
+
+.custom-highlight {
+    color: #00d1ff; /* Cyan color from image */
+}
+
+/* Grid Layout */
+.custom-mgmt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Card Design */
+.custom-mgmt-card-wrapper {
+    position: relative;
+    padding-top: 8px; /* Space for the top accent */
+}
+
+.custom-mgmt-card {
+    background-color: #1a1b26; /* Dark navy/black background */
+    padding: 40px 30px;
+    border-radius: 20px;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.3s ease;
+    
+    /* The Cyan glow/border effect from the image */
+    border-top: 6px solid #00d1ff;
+    box-shadow: 0px 10px 30px rgba(0, 209, 255, 0.1);
+}
+
+.custom-mgmt-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Text inside cards */
+.custom-card-title {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.custom-card-description {
+    color: #fff; /* Light gray text */
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    text-align:left;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .custom-mgmt-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .custom-mgmt-grid {
+        grid-template-columns: 1fr;
+    }
+    .custom-mgmt-heading {
+        font-size: 28px;
+    }
+}
+
+.custom-sec-boxes-info h2,.custom-sec-boxes-info h3,.custom-sec-boxes-info h4,.custom-sec-boxes-info h5,.custom-sec-boxes-info h6{
+    color:#fff !important;
+font-weight: 400!important;
+font-size: 23px !important;
+line-height: 30px!important;
+letter-spacing: 0%!important;
+text-transform: capitalize;
+margin-bottom:0px !important;
+
+}
+.custom-sec-boxes-info p{
+    color:#fff !important;
+    text-align:left;
+}

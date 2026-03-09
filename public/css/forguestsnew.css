@@ -1,0 +1,130 @@
+/* Container */
+.investor-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  padding-bottom: 0px;
+}
+
+.main-header-section {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+
+.main-title-top {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Tabs Navigation */
+.tabs-nav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.tabs-wrapper {
+  display: flex;
+  gap: 15px;
+  width:600px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: 1px solid #000;
+  background: #fff;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background: #12131c;
+  color: #fff;
+  border-color: #12131c;
+}
+
+/* Content Flex */
+.content-flex-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.tab-image-side { flex: 1; }
+.rounded-img { border-radius: 40px; width: 100%; height: auto; }
+
+.tab-text-side { flex: 1; }
+
+.badge-container { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.cyan-sq { width: 10px; height: 10px; background: #00e2ee; }
+.badge-text { font-size: 12px; font-weight: 400; color: #000000; }
+
+.tab-main-heading { font-size: 36px; font-weight: 600; margin-bottom: 20px; }
+.cyan-text { color: #00e2ee; }
+.tab-desc p { color: #000000; line-height: 1.7; margin-bottom: 25px;font-size:'19px' }
+.tab-desc span{
+    color:#000 !important;
+}
+.lets-talk-btn {
+  background: #181828;
+  color: #fff;
+  padding: 12px 35px;
+  border-radius: 0px;
+  border: none;
+  font-size:18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Dark Bottom Cards (Image 12 style) */
+.dark-cards-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.dark-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.dark-card {
+  background: #12131c; /* Dark theme as requested */
+  padding: 40px 30px;
+  border-radius: 20px;
+  color: #fff;
+  border-top: 8px solid #00e2ee; /* Accent border on top */
+}
+
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.card-icon { font-size: 24px; color: #00e2ee; }
+.card-title { font-size: 22px; font-weight: 700; text-transform: uppercase; }
+
+.card-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+}
+.card-body p span{
+    background:none !important;
+    font-size:15px;
+    font-weight:400;
+}
+.card-image-icon img{
+    height:auto !important;
+}
+/* Responsive */
+@media (max-width: 992px) {
+  .content-flex-container { flex-direction: column; }
+  .dark-cards-container { grid-template-columns: 1fr; }
+}

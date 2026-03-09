@@ -1,0 +1,91 @@
+.custom-discover-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.custom-discover-row {
+    display: flex;
+    min-height: 80vh; /* Professional height */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Reverse logic for the second row */
+.custom-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Exact 50-50 Split */
+.custom-column-50 {
+    flex: 0 0 50%; /* Shorthand for grow:0, shrink:0, basis:50% */
+    width: 50%;
+    position: relative;
+}
+
+/* Image styling */
+.custom-image-box {
+    min-height: 450px;
+}
+
+.custom-img-fill {
+    object-fit: cover;
+    display: block;
+}
+
+/* Text styling */
+.custom-text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 60px 5%;
+}
+
+.custom-inner-content {
+    max-width: 550px; /* Text reading comfort ke liye limit */
+}
+
+/* Typography matching the image */
+.custom-discover-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 20px;
+    text-transform: none;
+}
+
+.custom-cyan-text {
+    color: #00d1ff;
+}
+
+.custom-discover-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 400;
+}
+
+/* Tablet & Mobile Responsive */
+@media (max-width: 991px) {
+    .custom-column-50 {
+        flex: 0 0 100%; /* Mobile par 100% width */
+        width: 100%;
+    }
+
+    .custom-discover-row {
+        flex-direction: column;
+    }
+
+    .custom-reverse {
+        flex-direction: column; /* Mobile par stack order maintain rakhta hai */
+    }
+
+    .custom-image-box {
+        height: 350px;
+    }
+
+    .custom-discover-title {
+        font-size: 28px;
+    }
+}

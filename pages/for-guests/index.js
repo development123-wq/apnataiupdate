@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 import InnerBanner from '../../components/InnerBanner';
 import ForRentals from '../../components/ForGuests/ForGuests';
 import BusinessEvents from '../../components/BusinessEvents/BusinessEvents';
+import NataiProperty from '../../components/BusinessEvents/NataiProperty';
 import Card from "../../components/PropertyCardGuests";
 
 
@@ -18,7 +19,9 @@ const ForRental = () => {
     <Header/>
     <InnerBanner/>
     <ForRentals/>
+   
     <BusinessEvents/>
+    <NataiProperty/>
     <Card/>
 
 

@@ -1,205 +1,133 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../public/css/forguests.css";
+import "../../public/css/forguestsnew.css";
 import Image from "next/image";
+
+// ✅ Apni images ka sahi path yahan import kar lein
+import img1 from "../../public/images/icons/icon1.png"; 
+import img2 from "../../public/images/icons/icon2.png";
+import img3 from "../../public/images/icons/icon3.png";
 
 const API_URL = "https://techzenondev.com/apnatai/api/forowner/1/edit";
 const IMAGE_BASE = "https://techzenondev.com/apnatai/storage/app/public/";
 
 const Html = ({ className, html }) => {
   if (!html) return null;
-  const cleaned = String(html).trim();
-  if (!cleaned || cleaned === "<p></p>" || cleaned === ",") return null;
-  return <div className={className} dangerouslySetInnerHTML={{ __html: cleaned }} />;
-};
-
-// comma ke baad sirf 2 words accent
-const TitleAccentTwoWords = ({ text, accentColor = "#00e2ee" }) => {
-  if (!text) return null;
-
-  const str = String(text);
-  const commaIndex = str.indexOf(",");
-
-  if (commaIndex === -1) return <>{str}</>;
-
-  const before = str.slice(0, commaIndex).trim();
-  const after = str.slice(commaIndex + 1).trim();
-  if (!after) return <>{before}</>;
-
-  const words = after.split(/\s+/); // [web:105]
-  const firstTwo = words.slice(0, 2).join(" ");
-  const rest = words.slice(2).join(" ");
-
-  return (
-    <>
-      {before}
-      {", "}
-      <span style={{ color: accentColor }}>{firstTwo}</span>
-      {rest ? ` ${rest}` : ""}
-    </>
-  );
-};
-
-const InvestorSection = ({ page, n }) => {
-  const maintitle = page?.[`section${n}_maintitle`];
-  const image = page?.[`section${n}_image`];
-  const title = page?.[`section${n}_title`];
-  const description = page?.[`section${n}_description`];
-
-  const buttonText = page?.[`section${n}_button_text`] || "Let's Talk";
-  const buttonLink = page?.[`section${n}_button_link`] || "/contact";
-
-  const leftTitle = page?.[`section${n}_lefttab_title`];
-  const leftDesc = page?.[`section${n}_lefttab_description`];
-  const middleTitle = page?.[`section${n}_middletab_title`];
-  const middleDesc = page?.[`section${n}_middletab_description`];
-  const rightTitle = page?.[`section${n}_righttab_title`];
-  const rightDesc = page?.[`section${n}_righttab_description`];
-
-  if (!maintitle && !title && !description && !image) return null;
-
-  return (
-    <>
-   
-    <section className="business-section" id={`s${n}`}>
-      
-
-      <div className="business-top">
-        <div className="business-image">
-          {image ? (
-            <Image
-              src={`${IMAGE_BASE}${image}`}
-              alt={maintitle || "Business"}
-              width={700}
-              height={500}
-            />
-          ) : null}
-        </div>
-
-        <div className="business-content">
-          <h2
-        className="titleheadingownerss"
-        style={{ width: "100%", textAlign: "center", fontSize: "35px", paddingTop: "30px" }}
-      >
-        {maintitle}
-      </h2>
-          <h1 style={{fontSize: '2rem'}}>
-            <TitleAccentTwoWords text={title} accentColor="#00e2ee" />
-          </h1>
-
-          <Html className="description-custom" html={description} />
-
-          <a className="learn-btn" href={buttonLink}>
-            {buttonText}
-          </a>
-        </div>
-      </div>
-
-      <div className="business-bottom">
-        <div className="bottom-card">
-          <h3>{leftTitle}</h3>
-          <Html html={leftDesc} />
-        </div>
-
-        <div className="bottom-card">
-          <h3>{middleTitle}</h3>
-          <Html html={middleDesc} />
-        </div>
-
-        <div className="bottom-card">
-          <h3>{rightTitle}</h3>
-          <Html html={rightDesc} />
-        </div>
-      </div>
-    </section>
-    </>
-  );
+  return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
 export default function ForGuests() {
   const [page, setPage] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // tumne bola insert rules 4/6/7 pe, so 1-7 map hi rakha
-  const sections = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8], []);
+  const [activeTab, setActiveTab] = useState(1);
 
   useEffect(() => {
-    const run = async () => {
+    const fetchData = async () => {
       try {
-        setLoading(true);
-
-        const res = await fetch(API_URL, {
-          method: "GET",
-          cache: "no-store",
-          headers: { Accept: "application/json" },
-        });
-
-        if (!res.ok) {
-          console.log("API failed:", res.status);
-          setPage(null);
-          return;
-        }
-
+        const res = await fetch(API_URL);
         const json = await res.json();
         setPage(json?.data || null);
       } catch (e) {
         console.log("Fetch error:", e);
-        setPage(null);
       } finally {
         setLoading(false);
       }
     };
-
-    run();
+    fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div className="loading">Loading...</div>;
   if (!page) return <p>No data</p>;
 
+  const tabs = [
+    { id: 1, label: "Buying" },
+    { id: 2, label: "Building" },
+    { id: 3, label: "Developing" },
+    { id: 4, label: "Managing" },
+    { id: 5, label: "Marketing" },
+    { id: 6, label: "Sourcing" },
+    { id: 7, label: "Renovating" },
+  ];
+
+  const n = activeTab;
+
   return (
-    <>
-     <section className="nav-buttons-section">
-  <div className="horizontal-nav-buttons">
-    <a href="#s1" className="nav-btn">SELLING</a>
-    <a href="#s2" className="nav-btn">LISTING</a>
-    <a href="#s3" className="nav-btn">SERVICES</a>
-    <a href="#s4" className="nav-btn">MANAGING</a>
-    <a href="#s5" className="nav-btn">MAINTAINING</a>
-    <a href="#s6" className="nav-btn">MARKETING</a>
-    <a href="#s7" className="nav-btn">SOURCING</a>
-    <a href="#s8" className="nav-btn">RENOVATING</a>
-  </div>
-</section>
-      {sections.map((n) => (
-        <React.Fragment key={n}>
-          <InvestorSection page={page} n={n} />
+    <main className="investor-page">
+      <div className="main-header-section">
+        <h2 className="main-title-top">Effortless property care</h2>
+      </div>
 
-          {/* ✅ After section 4 -> section9 */}
-          {n === 4 && (page.section9_title || page.section9_description) ? (
-            <div className="contentpart">
-              {page.section9_title ? <h3>{page.section9_title}</h3> : null}
-              <Html html={page.section9_description} />
-            </div>
-          ) : null}
+      <section className="tabs-nav-container">
+        <div className="tabs-wrapper">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </section>
 
-          {/* ✅ After section 6 -> section10 */}
-          {n === 6 && (page.section10_title || page.section10_description) ? (
-            <div className="contentpart">
-              {page.section10_title ? <h3>{page.section10_title}</h3> : null}
-              <Html html={page.section10_description} />
+      <section className="tab-content-display">
+        <div className="content-flex-container">
+          <div className="tab-image-side">
+            {page[`section${n}_image`] && (
+              <Image
+                src={`${IMAGE_BASE}${page[`section${n}_image`]}`}
+                alt="Property"
+                width={700}
+                height={450}
+                className="rounded-img"
+              />
+            )}
+          </div>
+          <div className="tab-text-side">
+            <div className="badge-container">
+              <span className="cyan-sq"></span>
+              <span className="badge-text">{tabs.find(t => t.id === n).label.toUpperCase()}</span>
             </div>
-          ) : null}
+            <h1 className="tab-main-heading">
+              {page[`section${n}_title`]?.split(',').map((part, i) => (
+                <span key={i} className={i === 1 ? "cyan-text" : ""}>
+                   {i === 0 ? part : `, ${part}`}
+                </span>
+              ))}
+            </h1>
+            <Html className="tab-desc" html={page[`section${n}_description`]} />
+            <button className="lets-talk-btn">Let's talk</button>
+          </div>
+        </div>
+      </section>
 
-          {/* ✅ After section 7 -> section11 */}
-          {n === 7 && (page.section11_title || page.section11_description) ? (
-            <div className="contentpart">
-              {page.section11_title ? <h3>{page.section11_title}</h3> : null}
-              <Html html={page.section11_description} />
-            </div>
-          ) : null}
-        </React.Fragment>
-      ))}
-    </>
+      {/* 4. DARK BOTTOM CARDS WITH IMAGES */}
+      <section className="dark-cards-section">
+        <div className="dark-cards-container">
+          {[
+            { t: page[`section${n}_lefttab_title`], d: page[`section${n}_lefttab_description`], img: img1 },
+            { t: page[`section${n}_middletab_title`], d: page[`section${n}_middletab_description`], img: img2 },
+            { t: page[`section${n}_righttab_title`], d: page[`section${n}_righttab_description`], img: img3 }
+          ].map((card, idx) => (
+            card.t && (
+              <div className="dark-card" key={idx}>
+                <div className="card-header">
+                  <div className="card-image-icon">
+                    <Image src={card.img} alt="icon" width={40} height={40} />
+                  </div>
+                  <h3 className="card-title">{card.t}</h3>
+                </div>
+                <Html className="card-body" html={card.d} />
+              </div>
+            )
+          ))}
+        </div>
+      </section>
+
+      
+    </main>
   );
 }

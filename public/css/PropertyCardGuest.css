@@ -14,6 +14,7 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
+  border: 1px solid #00E2EE;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -42,7 +43,7 @@
 }
 
 .property-description {
-  color: #666;
+  color: #000;
   font-size: 0.9rem;
   margin-bottom: 30px;
 }
@@ -147,9 +148,20 @@
   height: 400px;
   width: 100%;
   background: url('../images/guest-banner.png') no-repeat center center / cover;
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
-  border-radius: 30px;
+  border-radius: 0px;
+  overflow: hidden; /* ensures overlay stays inside rounded corners */
+}
+
+.custom-image-guest{
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: url('../images/guest-banner.png') no-repeat center center / cover;
+  max-width: 100%;
+  margin: auto;
+  border-radius: 0px;
   overflow: hidden; /* ensures overlay stays inside rounded corners */
 }
 
@@ -173,7 +185,7 @@
   text-align:center;
 }
 .custom-sec-two{
-  margin-top:-260px;
+  margin-top:-360px;
   z-index:999999;
   background:#ffffff!important;
   max-width:1170px;
@@ -190,7 +202,9 @@
 .fancy-mainheading-two h2{
   color:#fff;
 }
-
+.fancy-mainheading-twotwo{
+  display:block !important;
+}
 .fancy-mainheading-two {
   display: flex;
   justify-content: center;
@@ -240,17 +254,20 @@
 .list-item {
   padding: 8px 0;
   border-bottom: 1px solid #ddd;
+  font-weight:700;
+  color: #000 !important;;
 }
 
 /* Style for the Read More button */
 .read-more-btn {
-  background-color: #00e2ee;
+  background-color: #000;
   color: white;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
   margin-top: 15px;
   transition: all 0.3s ease;
+  font-size:16px; 
 }
 
 .read-more-btn:hover {
@@ -277,4 +294,38 @@
 .investers-bottom{
   background:none !important;
   padding-top:0px !important;
+}
+
+.property-card-new{
+  border: 1px solid #00E2EE;
+  box-shadow: 0px 10px 29.4px 0px #00E2EE12;
+border-radius: 23px;
+
+
+}
+
+.property-card-new img{
+  
+height: 266;
+opacity: 1;
+border-radius: 23px;
+
+}
+.property-card-new .property-title{
+font-family: Instrument Sans;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 22px;
+line-height: 115.99999999999999%;
+letter-spacing: 0%;
+
+}
+.property-card-new .property-description {
+  font-family: Instrument Sans;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+line-height: 140%;
+letter-spacing: 0%;
+
 }

@@ -1,0 +1,100 @@
+/* Container set to occupy full width and equal split */
+.final-container {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+  background-color: #ffffff; /* Clean white background */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+/* Left Column Styling */
+.final-content {
+  flex: 0 0 50%; /* Exactly 50% width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background-color: #ffffff;
+}
+
+.text-wrapper {
+  max-width: 550px; /* Text control within the 50% column */
+}
+
+.final-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.cyan-highlight {
+  color: #00e5ff; /* Bright cyan from the design */
+}
+
+.final-description {
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Button Styling */
+.final-btn {
+  background-color: #1a1c24; /* Dark navy/black */
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.final-btn:hover {
+  background-color: #333844;
+  transform: translateY(-2px);
+}
+
+/* Right Column Styling */
+.final-image-container {
+  flex: 0 0 50%; /* Exactly 50% width */
+  height: auto;
+}
+
+.final-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive for tablets and mobile */
+@media (max-width: 1024px) {
+  .final-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .final-container {
+    flex-direction: column;
+  }
+  
+  .final-content, .final-image-container {
+    flex: 0 0 100%; /* Full width on mobile */
+  }
+
+  .final-image-container {
+    height: 350px;
+    order: 1; /* Image first on mobile */
+  }
+
+  .final-content {
+    order: 2;
+    padding: 40px 20px;
+  }
+}

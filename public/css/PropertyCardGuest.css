@@ -260,7 +260,7 @@
 
 /* Style for the Read More button */
 .read-more-btn {
-  background-color: #000;
+  background-color: #000  !important;
   color: white;
   padding: 8px 16px;
   border: none;

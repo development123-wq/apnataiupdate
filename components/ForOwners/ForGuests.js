@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import "../../public/css/forguests.css";
 import "../../public/css/forguestsnew.css";
 import Image from "next/image";
-
-// ✅ Apni images ka sahi path yahan import kar lein
+import Link from "next/link";
 import img1 from "../../public/images/icons/icon1.png"; 
 import img2 from "../../public/images/icons/icon2.png";
 import img3 from "../../public/images/icons/icon3.png";
@@ -56,7 +55,7 @@ export default function ForGuests() {
   return (
     <main className="investor-page">
       <div className="main-header-section">
-        <h2 className="main-title-top">Effortless property care</h2>
+        <h2 className="main-title-top" >Effortless property care</h2>
       </div>
 
       <section className="tabs-nav-container">
@@ -99,7 +98,9 @@ export default function ForGuests() {
               ))}
             </h1>
             <Html className="tab-desc" html={page[`section${n}_description`]} />
-            <button className="lets-talk-btn">Let's talk</button>
+            <Link href="/contact">
+  <button className="lets-talk-btn">Let's talk</button>
+</Link>
           </div>
         </div>
       </section>

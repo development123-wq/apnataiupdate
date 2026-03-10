@@ -164,7 +164,7 @@ const PropertyCard = () => {
                 transition: "all 0.3s ease",
                 
               }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => window.location.href='/browse-catalog'}
               >
                 Explore Properties
               </button>

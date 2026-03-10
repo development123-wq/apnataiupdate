@@ -98,7 +98,7 @@ const BusinessEvents = () => {
         {/* Header Section */}
         <div className="property-header">
           <span className="sub-title sub-title-logistics">
-            LOGISTICS SOLUTIONS
+           <span class="space-dot-custom"></span> LOGISTICS SOLUTIONS
           </span>
           <h2
             className="main-title"

@@ -3,6 +3,7 @@ import Image from "next/image";
 import heroImg from "../../public/images/images/left-custom.png"; // Image 2 ke liye
 import mainImg from "../../public/images/images/viva2.jpg"; // Image 1 ke liye
 import "../../public/css/nataiproperty.css";
+import Link from "next/link";
 
 const NataiProperty = () => {
   return (
@@ -24,7 +25,8 @@ const NataiProperty = () => {
             <p className="custom-hero-desc">
               AP Natai is your gateway to exceptional beachfront living and premier real estate opportunities on Natai Beach, Phang-nga — just north of Phuket, Thailand. With over 20 years of experience in the region's luxury property market.
             </p>
-            <button className="custom-discover-btn">Discover more</button>
+             <Link href="/contact">
+            <button className="custom-discover-btn">Discover more</button></Link>
           </div>
         </div>
       </section>

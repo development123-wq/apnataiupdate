@@ -63,6 +63,7 @@
   display: flex;
   align-items: center;
   gap: 60px;
+  padding-left:50px;
 }
 
 .custom-about-title {
@@ -90,15 +91,43 @@
 
 .custom-vm-deco-bottom-line {
   position: absolute;
-  bottom: -15px; left: 15%;
+  bottom: -35px; left: 15%;
   width: 70%; height: 4px;
   background: #00D1FF;
+}
+.custom-vm-deco-bottom-line:before{
+  content: " ";
+    background: #00d1ff;
+    width: 4px;
+    height: 44px;
+    position: absolute;
+   
+    margin-top: -40px;
+    
+}
+.custom-vm-deco-bottom-line::after{
+  content: " ";
+    background: #00d1ff;
+    width: 4px;
+    height: 44px;
+    position: absolute;
+   position:absolute;
+   right:0px;
+    margin-top: -40px;
+    
+}
+
+.custom-vm-container:before{
+content:url('../public/images/left-bg.png');
+position: absolute;
+    left: -40px;
+    bottom: 0px;
 }
 
 .custom-vm-deco-dots-right {
   position: absolute;
   right: -15px; top: 30%;
-  width: 15px; height: 100px;
+  width: 10px; height: 150px;
   background-image: radial-gradient(#00D1FF 2px, transparent 2px);
   background-size: 10px 15px;
 }

@@ -1,4 +1,5 @@
 /* Container */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 .investor-page {
   font-family: 'Inter', sans-serif;
   background-color: #fff;
@@ -14,6 +15,8 @@
   font-size: 32px;
   font-weight: 700;
   color: #111;
+   font-family: "Instrument Sans", sans-serif !important;
+
 }
 
 /* Tabs Navigation */
@@ -34,7 +37,7 @@
 .tab-btn {
   padding: 10px 25px;
   border-radius: 30px;
-  border: 1px solid #000;
+  border: 2px solid #000;
   background: #fff;
   font-weight: 400;
   cursor: pointer;
@@ -67,7 +70,9 @@
 .cyan-sq { width: 10px; height: 10px; background: #00e2ee; }
 .badge-text { font-size: 12px; font-weight: 400; color: #000000; }
 
-.tab-main-heading { font-size: 36px; font-weight: 600; margin-bottom: 20px; }
+.tab-main-heading { font-size: 32px; font-weight: 600; margin-bottom: 20px; 
+   font-family: "Instrument Sans", sans-serif !important;
+}
 .cyan-text { color: #00e2ee; }
 .tab-desc p { color: #000000; line-height: 1.7; margin-bottom: 25px;font-size:'19px' }
 .tab-desc span{
@@ -76,7 +81,7 @@
 .lets-talk-btn {
   background: #181828;
   color: #fff;
-  padding: 12px 35px;
+  padding: 10px 35px;
   border-radius: 0px;
   border: none;
   font-size:18px;
@@ -113,12 +118,15 @@
 .card-body p {
   font-size: 14px;
   line-height: 1.6;
+    text-align: left !important;
   color: #fff;
 }
 .card-body p span{
     background:none !important;
-    font-size:15px;
+    font-size:14px !important;
+  line-height: 22px !important;
     font-weight:400;
+    text-align: left !important;
 }
 .card-image-icon img{
     height:auto !important;

@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import "../../public/css/forguests.css";
 import "../../public/css/forguestsnew.css";
 import Image from "next/image";
+import Link from "next/link";
+
 
 // ✅ Apni images ka sahi path yahan import kar lein
 import img1 from "../../public/images/icons/icon1.png"; 
@@ -99,7 +101,9 @@ export default function ForGuests() {
               ))}
             </h1>
             <Html className="tab-desc" html={page[`section${n}_description`]} />
-            <button className="lets-talk-btn">Let's talk</button>
+             <Link href="/contact">
+            
+            <button className="lets-talk-btn">Let's talk</button></Link>
           </div>
         </div>
       </section>

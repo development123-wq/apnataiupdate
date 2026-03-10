@@ -1,6 +1,7 @@
 import React from "react";
 import "../../public/css/forguests.css";
 import aboutimg from "../../public/images/images/viva.webp";
+import Link from "next/link";
 import Image from "next/image";
 import icon1 from '../../public/images/icons/icon1.png';
 import icon2 from '../../public/images/icons/icon2.png';
@@ -32,7 +33,8 @@ const ForGuests = () => {
             Natai, Phang-nga. With AP Natai, every rental becomes a doorway
             to opulence and unmatched comfort.
           </p>
-          <button className="custom-letstalk-btn">Let's talk</button>
+           <Link href="/contact">
+          <button className="custom-letstalk-btn">Let's talk</button></Link>
         </div>
       </div>
 

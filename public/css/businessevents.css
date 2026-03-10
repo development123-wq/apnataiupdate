@@ -309,6 +309,8 @@ text-align: center;
 .card-body span,.card-body{
   background:none !important;
   line-height:22px;
+  font-size:14px !important;
+  text-align:left !important;
 }
 
 .sub-title-logistics:before{

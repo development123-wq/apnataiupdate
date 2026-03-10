@@ -1,16 +1,15 @@
 "use client";
 import React from 'react';
-import { useRouter } from 'next/router';  
+import { useRouter } from 'next/router';
 
 import '../public/css/innerbanner.css';
 
 const InnerBanner = ({ title, buttonText = "Get a Consultant", buttonLink = "/contact" }) => {
   const router = useRouter();
 
-  // ✅ Get current path
   const path = router.pathname;
 
-  // ✅ Map URL path to heading text
+  // Small Heading Map
   const headingMap = {
     '/about': 'About Us',
     '/faqs':'FAQs',
@@ -28,18 +27,64 @@ const InnerBanner = ({ title, buttonText = "Get a Consultant", buttonLink = "/co
     '/for-real-estates': 'For Sale',
     '/news': 'News & Events',
     '/search-for-real-estate': 'Search For Realestate'
+  };
 
+  // ✅ H1 Heading Map (NEW)
+  const h1HeadingMap = {
+    '/for-owners': 'Where owners rest easy',
+    '/about-natai-phang-nga': 'About natai phang nga',
+    '/for-investors': 'Beachfront living, perfected',
+    '/for-guests': 'Seamless property management'
+  };
 
+  // Banner Image Map
+  const bannerMap = {
+    '/about': '/images/banner/about.jpg',
+    '/faqs': '/images/banner/about.jpg',
+    '/agents': '/images/banner/about.jpg',
+    '/agents/antoine-mouille': '/images/banner/about.jpg',
+    '/agents/lou-mouille': '/images/banner/about.jpg',
+    '/reviews': '/images/banner/about.jpg',
+    '/about-natai-phang-nga': '/images/banner/about-natai-phang-nga.png',
+    '/for-guests': '/images/banner/for-guests.png',
+    '/for-owners': '/images/banner/banner-owner.png',
+    '/for-investors': '/images/banner/investors.png',
+    '/browse-catalog': '/images/banner/catalog.jpg',
+    '/contact': '/images/banner/conatctbanner.jpg',
+    '/for-rentals': '/images/banner/rent.jpg',
+    '/for-real-estates': '/images/banner/sale.jpg',
+    '/news': '/images/banner/news.jpg',
+    '/search-for-real-estate': '/images/banner/search.jpg'
   };
 
   const pageTitle = headingMap[path] || 'Page';
+  const bannerImage = bannerMap[path] || '/images/banner/default.jpg';
+
+  // ✅ H1 title
+  const h1Title = h1HeadingMap[path] || 'Natai Phang Nga';
 
   return (
-    <section className="inner-banner">
+    <section
+      className="inner-banner"
+      style={{
+        backgroundImage: `url(${bannerImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
       <div className="banner-overlay">
-        <h5 className="banner-title" style={{fontSize:'15px',fontWeight:'400'}}>{title || pageTitle}</h5>
-        <h1 className="banner-title">Natai Phang Nga</h1>
-        <a href={buttonLink} className="banner-btn" style={{background:'none',border:'2px solid #fff',borderRadius:'100px'}}>
+        <h5 className="banner-title" style={{fontSize:'15px',fontWeight:'400',marginBottom:'5px'}}>
+          {title || pageTitle}
+        </h5>
+
+        {/* ✅ Dynamic H1 */}
+        <h1 className="banner-title">{h1Title}</h1>
+
+        <a
+          href={buttonLink}
+          className="banner-btn banner-btn-hover"
+          style={{background:'none',border:'2px solid #fff',borderRadius:'100px'}}
+        >
           {buttonText}
         </a>
       </div>

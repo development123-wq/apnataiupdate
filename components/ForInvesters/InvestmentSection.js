@@ -41,7 +41,7 @@ const InvestmentFinal = () => {
 
   return (
     <div className="final-container">
-      <div className="final-content">
+      <div className="final-content final-content-bg">
         <div className="text-wrapper">
           <h2 className="final-title">
             {section13.title || 'Where coastal beauty meets investment excellence'}

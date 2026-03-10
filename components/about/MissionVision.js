@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../../public/css/AboutSection.css";
 import Image from "next/image";
 
 const AboutPageSections = () => {
   const [about, setAbout] = useState(null);
   const [loading, setLoading] = useState(true);
+  const chooseHtmlRef = useRef(null);
 
   const imageBaseUrl = "https://techzenondev.com/apnatai/storage/app/public/";
 
@@ -21,6 +22,46 @@ const AboutPageSections = () => {
         setLoading(false);
       });
   }, []);
+
+  // Function to highlight 3rd & 4th words (after first 2 words)
+  const highlightThirdAndFourthWords = () => {
+    const h2Elements = chooseHtmlRef.current?.querySelectorAll('h2');
+    h2Elements?.forEach((h2) => {
+      const text = h2.textContent || h2.innerText || '';
+      const words = text.trim().split(/\s+/);
+      
+      if (words.length >= 4) {
+        // Remove existing spans first
+        const existingSpans = h2.querySelectorAll('span.highlight-words');
+        existingSpans.forEach(span => span.replaceWith(...Array.from(span.childNodes)));
+        
+        // First 2 words (normal), next 2 words (highlighted), rest normal
+        const firstTwoWords = words.slice(0, 2).join(' ');
+        const highlightTwoWords = words.slice(2, 4).join(' ');
+        const remainingWords = words.slice(4).join(' ');
+        
+        let newHTML = firstTwoWords;
+        newHTML += ` <span class="highlight-words" style="color: #00e2ee;">${highlightTwoWords}</span>`;
+        if (remainingWords) {
+          newHTML += ` ${remainingWords}`;
+        }
+        
+        h2.innerHTML = newHTML;
+      }
+    });
+  };
+
+  // Apply highlighting after content loads and DOM updates
+  useEffect(() => {
+    if (!loading && about && chooseHtmlRef.current) {
+      // Small delay to ensure dangerouslySetInnerHTML has rendered
+      const timer = setTimeout(() => {
+        highlightThirdAndFourthWords();
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [loading, about]);
 
   if (loading || !about) {
     return <div className="custom-loader">Loading...</div>;
@@ -42,7 +83,6 @@ const AboutPageSections = () => {
 
         <div className="custom-vm-container">
           <div className="custom-vm-card">
-            {/* Left side: Vision (section2_description) */}
             <div className="custom-vm-side-content">
               <div
                 className="custom-vm-html"
@@ -52,7 +92,6 @@ const AboutPageSections = () => {
               />
             </div>
 
-            {/* Middle: Image from section3_image */}
             <div className="custom-vm-image-wrapper">
               <Image
                 src={section3Image}
@@ -63,7 +102,6 @@ const AboutPageSections = () => {
               />
             </div>
 
-            {/* Right side: Mission (section3_description) */}
             <div className="custom-vm-side-content">
               <div
                 className="custom-vm-html"
@@ -74,7 +112,6 @@ const AboutPageSections = () => {
             </div>
           </div>
 
-          {/* Decorative Elements */}
           <div className="custom-vm-deco-dots-left"></div>
           <div className="custom-vm-deco-dots-right"></div>
           <div className="custom-vm-deco-bottom-line"></div>
@@ -85,7 +122,6 @@ const AboutPageSections = () => {
       {/* --- WHY CHOOSE US SECTION --- */}
       <section className="custom-choose-section">
         <div className="custom-choose-container">
-          {/* Left Side: Image from section4_image */}
           <div className="custom-choose-image-wrapper">
             <div className="custom-choose-image-card">
               <Image
@@ -98,11 +134,13 @@ const AboutPageSections = () => {
             </div>
           </div>
 
-          {/* Right Side: Content (section4_description) */}
           <div className="custom-choose-content">
-            {/* Badge + text sab API ke HTML me already hai to yeh optional hai.
-                Agar sirf API content chahiye to badge/title hardcode mat karo. */}
+            <span style={{display:'flex',gap:'5px',marginBottom:'10px'}}>
+              <span style={{marginTop:'4px',background:'#00E2EE',width:'10px',height:'10px',display: 'block'}}></span>
+              Trusted Expertise
+            </span>
             <div
+              ref={chooseHtmlRef}
               className="custom-choose-html"
               dangerouslySetInnerHTML={{
                 __html: about.section4_description,

@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../../public/css/AboutSection.css";
 import Image from "next/image";
 
 const AboutSection = () => {
   const [about, setAbout] = useState(null);
   const [loading, setLoading] = useState(true);
+  const aboutHtmlRef = useRef(null);
 
   // NOTE: api yahi hai: /about-us/1/edit
   useEffect(() => {
@@ -21,6 +22,39 @@ const AboutSection = () => {
         setLoading(false);
       });
   }, []);
+
+  // Function to highlight LAST 2 words of h2 tags in custom-about-content
+  const highlightLastTwoWords = () => {
+    const h2Elements = aboutHtmlRef.current?.querySelectorAll('h2');
+    h2Elements?.forEach((h2) => {
+      const text = h2.textContent || h2.innerText || '';
+      const words = text.trim().split(/\s+/);
+      
+      if (words.length >= 2) {
+        // Remove existing spans first
+        const existingSpans = h2.querySelectorAll('span.last-two-words');
+        existingSpans.forEach(span => span.replaceWith(...Array.from(span.childNodes)));
+        
+        // Last 2 words highlight, first part normal
+        const lastTwoWords = words.slice(-2).join(' ');
+        const firstPart = words.slice(0, -2).join(' ');
+        
+        h2.innerHTML = firstPart 
+          ? `${firstPart} <span class="last-two-words" style="color: #00E2EE;">${lastTwoWords}</span>`
+          : `<span class="last-two-words" style="color: #00E2EE;">${lastTwoWords}</span>`;
+      }
+    });
+  };
+
+  // Apply highlighting after content loads
+  useEffect(() => {
+    if (!loading && about && aboutHtmlRef.current) {
+      const timer = setTimeout(() => {
+        highlightLastTwoWords();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [loading, about]);
 
   if (loading || !about) {
     return <div className="custom-loader">Loading...</div>;
@@ -42,6 +76,7 @@ const AboutSection = () => {
         <div className="custom-about-content">
           {/* API se aaya pura HTML (section1_description) */}
           <div
+            ref={aboutHtmlRef}
             className="custom-about-html-wrapper"
             dangerouslySetInnerHTML={{ __html: about.section1_description }}
           />
@@ -61,10 +96,6 @@ const AboutSection = () => {
 
         {/* Image Side with Decorative Elements */}
         <div className="custom-about-image-wrapper">
-          {/* Top Line & Dotted Pattern */}
-          {/* <div className="custom-deco-top-line"></div>
-          <div className="custom-deco-dots"></div> */}
-
           <div className="custom-image-card">
             <Image
               src={sectionImage}
@@ -74,10 +105,6 @@ const AboutSection = () => {
               className="custom-img"
             />
           </div>
-
-          {/* Bottom Cyan Shapes */}
-          {/* <div className="custom-deco-bottom-right"></div>
-          <div className="custom-deco-bottom-box"></div> */}
         </div>
       </div>
     </section>

@@ -152,7 +152,7 @@
 
 @media (max-width: 768px) {
     .hero-container {
-        min-height: 100vh; /* Mobile pe height badhaya */
+        min-height: 80vh; /* Mobile pe height badhaya */
         align-items: flex-start;
     }
     

@@ -139,7 +139,7 @@ const PropertyCard = () => {
                 marginBottom: "20px",
                 lineHeight: "1.2"
               }}>
-                Diversify your <span style={{color:'#00E2EE'}}>real estate</span> journey
+                Diversify yours <span style={{color:'#00E2EE'}}>real estate</span> journey
               </h1>
               <p style={{
                 fontSize: "16px",

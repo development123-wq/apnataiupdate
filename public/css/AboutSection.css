@@ -2,6 +2,8 @@
 .about-section {
   padding: 60px 20px;
   background-color: #fff;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .about-container {
@@ -283,6 +285,14 @@ color:#00E2EE !important;
   }
   .custom-about-list li { justify-content: center; }
   .custom-deco-left-bar, .custom-deco-dots { display: none; }
+  .about-section {
+  background-color: #fff;
+  padding-left:10px !important;
+  padding-right:10px !important;
+}
+.about-section p{
+  font-size:12px !important;
+}
 }
 
 /* natai development */

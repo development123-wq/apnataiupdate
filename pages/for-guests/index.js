@@ -10,7 +10,7 @@ import InnerBanner from '../../components/InnerBanner';
 import ForRentals from '../../components/ForGuests/ForGuests';
 import BusinessEvents from '../../components/BusinessEvents/BusinessEvents';
 import NataiProperty from '../../components/BusinessEvents/NataiProperty';
-import Card from "../../components/PropertyCardGuests";
+import Card from "../../components/PropertyCardInvestors";
 
 
 const ForRental = () => {

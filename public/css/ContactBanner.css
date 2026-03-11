@@ -84,3 +84,18 @@
     height:340px !important;
   }
 }
+
+
+@media(max-width:767px){
+  .hero-sec-overlaymain{
+    padding-top:0px !important;
+
+  }
+  .overlay-contact{
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+  .hero-button{
+    font-size:12px !important;
+  }
+}

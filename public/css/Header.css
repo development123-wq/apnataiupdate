@@ -173,3 +173,10 @@
     height: 4px;
     background-color: #0b2447; /* Deep Blue color */
 }
+
+@media(max-width:767px)
+{
+    .socialIcons{
+        display:none !important;
+    }
+}

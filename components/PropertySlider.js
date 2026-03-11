@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
 import Link from 'next/link';
-import '../public/css/PropertySlider.css'; 
+import '../public/css/PropertySlider.css';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,11 +19,8 @@ export default function PropertySlider() {
 
   const IMAGE_BASE_URL = 'https://techzenondev.com/apnatai/storage/app/public/';
 
-  // ✅ 20 words truncate + HTML strip function
   const truncateDescription = (htmlString, maxWords = 20) => {
-    // Remove HTML tags
     const text = htmlString?.replace(/<[^>]*>/g, '') || '';
-    // Split into words and truncate
     const words = text.split(/\s+/);
     return words.slice(0, maxWords).join(' ') + (words.length > maxWords ? '...' : '');
   };
@@ -33,7 +30,7 @@ export default function PropertySlider() {
       try {
         const response = await fetch('https://techzenondev.com/apnatai/api/property-for-rent-home');
         const result = await response.json();
-        
+
         if (result && result.status && result.data && result.data.data) {
           setProperties(result.data.data);
         }
@@ -77,7 +74,7 @@ export default function PropertySlider() {
       <div className="property-content">
         <div className="heading-row">
           <div>
-            <h2 className="slider-heading"> 
+            <h2 className="slider-heading">
               Properties For <span>Rent</span>
             </h2>
             <p className="slider-heading">
@@ -86,18 +83,21 @@ export default function PropertySlider() {
           </div>
 
           <div className="arrows-container arrow-container-nextprev">
-            <div
+            <button
+              type="button"
               className="arrow prev"
               onClick={() => sliderRef.current?.slickPrev()}
             >
               <span>←</span>
-            </div>
-            <div
+            </button>
+
+            <button
+              type="button"
               className="arrow next"
               onClick={() => sliderRef.current?.slickNext()}
             >
               <span>→</span>
-            </div>
+            </button>
           </div>
         </div>
 
@@ -116,37 +116,40 @@ export default function PropertySlider() {
                       unoptimized
                     />
                   </div>
-                  
+
                   <div className="property-info">
-                    {/* ✅ TITLE LINK SAME */}
                     <Link href={`/property/${item.slug}`} className="property-title-link">
                       <h3 className="property-title">{item.title}</h3>
                     </Link>
-                    
-                    {/* ✅ DESCRIPTION = 20 WORDS MAX + HTML STRIP */}
-                    <p className="property-description" style={{color:'#666', fontSize:'14px', margin:'5px 0 10px 0'}}>
-                     {truncateDescription(item.description)}
+
+                    <p
+                      className="property-description"
+                      style={{ color: '#666', fontSize: '14px', margin: '5px 0 10px 0' }}
+                    >
+                      {truncateDescription(item.description)}
                     </p>
 
                     <div className="property-details">
-                      <div class="detail-item">
-                        <Image src={Beds} alt="Bedrooms" width={20} height={20} /> 
+                      <div className="detail-item">
+                        <Image src={Beds} alt="Bedrooms" width={20} height={20} />
                         {item.min_beds} Bedrooms
                       </div>
-                      <div class="detail-item">
-                        <Image src={Bath} alt="Bathrooms" width={20} height={20} /> 
+                      <div className="detail-item">
+                        <Image src={Bath} alt="Bathrooms" width={20} height={20} />
                         {item.min_baths} Bathrooms
                       </div>
-                      <div class="detail-item">
-                        <Image src={Area} alt="Area" width={20} height={20} /> 
+                      <div className="detail-item">
+                        <Image src={Area} alt="Area" width={20} height={20} />
                         {item.min_area_sqft?.toLocaleString()} sqft
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="property-footer">
-                    
-                    <div className="price"><h5 className="forsale-heading">for Rent</h5> ฿{parseFloat(item.min_price)?.toLocaleString()}</div>
+                    <div className="price">
+                      <h5 className="forsale-heading">for Rent</h5>
+                      ฿{parseFloat(item.min_price)?.toLocaleString()}
+                    </div>
                     <a className="read-more" href={`/property/${item.slug}`}>Read More »</a>
                   </div>
                 </div>

@@ -16,12 +16,11 @@ export default function AgentSlider() {
 
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: agents.length > 2,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    nextarrow: <div style={{ display: 'none' }} />,
-    prevarrow: <div style={{ display: 'none' }} />,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -38,7 +37,6 @@ export default function AgentSlider() {
     const fetchAgents = async () => {
       try {
         const response = await axios.get('https://techzenondev.com/apnatai/api/agents/home');
-        console.log(response.data);
 
         if (response.data.status && response.data.data?.data) {
           setAgents(response.data.data.data);
@@ -56,71 +54,87 @@ export default function AgentSlider() {
   }, []);
 
   const cleanDescription = (html) => {
-    return html ? html.replace(/<[^>]+>/g, '').substring(0, 200) + '...' : '';
+    const text = html ? html.replace(/<[^>]+>/g, '') : '';
+    return text.length > 200 ? text.substring(0, 200) + '...' : text;
   };
+
+  if (loading) return null;
 
   return (
     <div className="agent-wrapper agent-wrapper-two">
       <div className="left-side">
-        <h3 className="main-title" style={{color:'#000'}}>Meet</h3>
+        <h3 className="main-title" style={{ color: '#000' }}>Meet</h3>
         <h2 className="highlight-title">Our Agents</h2>
-        <p className="sub-text" style={{color:'#000',lineHeight:'20px'}}>
-          Connect with our expert agents, dedicated to guiding you with clarity, trust, and deep market knowledge. 
+        <p className="sub-text" style={{ color: '#000', lineHeight: '20px' }}>
+          Connect with our expert agents, dedicated to guiding you with clarity, trust, and deep market knowledge.
           Experience seamless support from professionals who prioritize your goals.
         </p>
 
         <div className="arrows-desktop">
-          <div className="custom-arrow" onClick={() => sliderRef.current?.slickPrev()}>
+          <button
+            type="button"
+            className="custom-arrow"
+            onClick={() => sliderRef.current?.slickPrev()}
+          >
             ❮
-          </div>
-          <div className="custom-arrow" onClick={() => sliderRef.current?.slickNext()}>
+          </button>
+
+          <button
+            type="button"
+            className="custom-arrow"
+            onClick={() => sliderRef.current?.slickNext()}
+          >
             ❯
-          </div>
+          </button>
         </div>
       </div>
 
       <div className="right-side">
-        <Slider ref={sliderRef} {...settings}>
-          {agents.map((agent) => (
-            <Link 
-              key={agent.id || agent.url} 
-              href={agent.url || '/agent'}
-              className={`agent-card-wrapper ${hoveredAgentId === agent.id ? 'hovered' : ''}`}
-              onMouseEnter={() => setHoveredAgentId(agent.id)}
-              onMouseLeave={() => setHoveredAgentId(null)}
-            >
-              <div className="agent-card">
-                <div className="agent-header">
-                  <Image
-                    src={`https://techzenondev.com/apnatai/public/${agent.image}`}
-                    width={80}
-                    height={80}
-                    alt={agent.name}
-                    className="agent-img"
-                    style={{objectFit:'cover'}}
-                  />
-                  <div>
-                    <h3 className="agent-name" style={{color:'#000'}}>{agent.title}</h3>
-                    
-                    <p className="agent-listings">{agent.short_description}</p>
-                    <div className="agent-contact-mobile">
-                  <a href={`tel:${agent.mobile || agent.phone}`} className="agent-phone">
-                    📞 {agent.mobile || agent.phone || '+91 98765 43210'}
-                  </a>
-                </div>
+        {agents.length > 0 && (
+          <Slider ref={sliderRef} {...settings}>
+            {agents.map((agent) => (
+              <div key={agent.id || agent.url}>
+                <Link
+                  href={agent.url || '/agent'}
+                  className={`agent-card-wrapper ${hoveredAgentId === agent.id ? 'hovered' : ''}`}
+                  onMouseEnter={() => setHoveredAgentId(agent.id)}
+                  onMouseLeave={() => setHoveredAgentId(null)}
+                >
+                  <div className="agent-card">
+                    <div className="agent-header">
+                      <Image
+                        src={`https://techzenondev.com/apnatai/public/${agent.image}`}
+                        width={80}
+                        height={80}
+                        alt={agent.name || agent.title}
+                        className="agent-img"
+                        style={{ objectFit: 'cover' }}
+                        unoptimized
+                      />
+                      <div>
+                        <h3 className="agent-name" style={{ color: '#000' }}>
+                          {agent.title}
+                        </h3>
+
+                        <p className="agent-listings">{agent.short_description}</p>
+
+                        <div className="agent-contact-mobile">
+                          <a href={`tel:${agent.mobile || agent.phone}`} className="agent-phone">
+                            📞 {agent.mobile || agent.phone || '+91 98765 43210'}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="agent-description" style={{ color: '#000', lineHeight: '20px' }}>
+                      {cleanDescription(agent.description)}
+                    </p>
                   </div>
-                </div>
-
-                <p className="agent-description" style={{color:'#000',lineHeight:'20px'}}>
-                  {cleanDescription(agent.description)}
-                </p>
-
-                {/* ✅ MOBILE MEIN AGENT NUMBER NIEE */}
-                
+                </Link>
               </div>
-            </Link>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   );

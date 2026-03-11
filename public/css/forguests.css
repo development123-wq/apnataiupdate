@@ -424,4 +424,18 @@ text-align: center;
   .custom-business-bottom {
     grid-template-columns: 1fr !important;
   }
+  .custom-business-section{
+    padding:10px !important;
+  }
+  .custom-business-section h1,.custom-events-header h1,.custom-footer-text h3,.custom-hero-title{
+    font-size:20px !important;
+
+  }
+  .custom-business-section p{
+    font-size:12px !important;
+  }
+  .custom-business-section button{
+    font-size:12px  !important;
+  }
 }
+

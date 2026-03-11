@@ -329,3 +329,10 @@ line-height: 140%;
 letter-spacing: 0%;
 
 }
+
+@media(max-width:767px){
+  .fancy-mainheading p{
+    font-size:12px !important;
+    width:100% !important;
+  }
+}

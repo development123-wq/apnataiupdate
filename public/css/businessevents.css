@@ -321,3 +321,18 @@ text-align: center;
   height:10px;
 
 }
+
+
+@media(max-width:767px){
+  .custom-footer-text h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+  color: #000000 !important;
+  text-transform: capitalize !important;
+  line-height: 1.3 !important;
+}
+.custom-events-section{
+  padding-bottom:0px !important;
+}
+}

@@ -135,4 +135,19 @@
 @media (max-width: 992px) {
   .content-flex-container { flex-direction: column; }
   .dark-cards-container { grid-template-columns: 1fr; }
+  .tab-btn {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+
+  }
+  .tabs-nav-container .tabs-wrapper{
+    gap:8px !important;
+  }
+  .tab-main-heading{
+    font-size: 20px !important;
+  }
+  .tab-desc span,.lets-talk-btn,.tab-desc p{
+    font-size: 12px !important;
+    line-height:18px !important;
+  }
 }

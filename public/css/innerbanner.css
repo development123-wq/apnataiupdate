@@ -53,3 +53,13 @@
   background:#00e2ee !important;
   color:#000;
 }
+
+@media(max-width:767px){
+  .banner-overlay h5,.tabs-nav-container button{
+    font-size:12px !important;
+
+  }
+  .main-title-top{
+    font-size:22px !important;
+  }
+}

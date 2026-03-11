@@ -54,6 +54,9 @@
     height: auto;
     padding: 42px 16px;
   }
+  .about-description{
+    font-size:12px !important;
+  }
 }
 
 

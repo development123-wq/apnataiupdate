@@ -435,3 +435,16 @@ border-radius: 23px;
 .custom-vm-card{
   background:#181828 !important;
 }
+
+@media(max-width:767px)
+{
+  .custom-about-section,.custom-about-container{
+    padding-left:10px !important;
+  }
+  .custom-about-section{
+    padding:30px 10px!important;
+  }
+  .custom-img{
+    height:auto !important;
+  }
+}

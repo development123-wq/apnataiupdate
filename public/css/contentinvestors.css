@@ -34,3 +34,15 @@
   color: #000 !important;
   margin-bottom: 16px;
 }
+
+
+@media (max-width: 767px) {
+  .content-investors-heading{
+        font-size: 20px !important;
+
+  }
+  .content-investors-paragraph p{
+    font-size: 12px !important;
+
+  }
+}

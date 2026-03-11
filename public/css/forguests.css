@@ -437,5 +437,8 @@ text-align: center;
   .custom-business-section button{
     font-size:12px  !important;
   }
+  .custom-business-top{
+    gap: 20px !important;
+  }
 }
 

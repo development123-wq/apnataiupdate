@@ -335,6 +335,33 @@ letter-spacing: 0%;
     font-size:12px !important;
     width:100% !important;
   }
+  .custom-image-guest h1{
+font-size:20px !important;
+  }
+  .custom-image-guest p,.custom-image-guest button{
+font-size:10px !important;
+  }
+  .custom-image-guest{
+    height:400px !important;
+  }
+  .custom-card-sec{
+    top:40% !important;
+  }
+  .investers-bottom{
+    margin-top:-80px !important;
+
+  }
+  .property-card-new .image-wrapper{
+    height:180px !important;
+
+  }
+  .property-content h3{
+font-size:20px !important;
+
+  }
+  .property-list li{
+font-size:12px !important;
+  }
 }
 
 

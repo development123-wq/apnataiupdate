@@ -102,3 +102,25 @@ margin-bottom:0px !important;
     color:#fff !important;
     text-align:left;
 }
+
+
+@media(max-width:767px)
+{
+    .custom-mgmt-heading{
+        width:100% !important;
+        font-size: 20px !important;
+        padding-bottom:20px !important;
+    }
+    .custom-mgmt-card h3{
+        font-size: 20px !important;
+
+    }
+    .custom-card-description p{
+        font-size: 12px !important;
+
+    }
+    .custom-mgmt-card{
+        padding:20px !important;
+
+    }
+}

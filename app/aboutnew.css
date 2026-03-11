@@ -314,4 +314,17 @@ position: absolute;
   .custom-expertise-badge {
     justify-content: center;
   }
+  .custom-choose-container{
+    gap:20px !important;
+  }
+  .custom-choose-section{
+    padding-bottom:30px !important;
+  }
+  .custom-vm-side-content{
+    padding:20px !important;
+    text-align: left !important; 
+  }
+  .custom-vm-html p{
+    font-size:12px !important;
+  }
 }

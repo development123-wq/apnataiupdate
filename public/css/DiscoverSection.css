@@ -88,4 +88,16 @@
     .custom-discover-title {
         font-size: 28px;
     }
+    .custom-image-box{
+        height:200px !important;
+        min-height:200px !important
+    }
+    .custom-discover-title{
+        font-size:20px !important;
+    }
+    .custom-discover-desc{
+        font-size: 12px !important;
+
+    }
 }
+

@@ -132,7 +132,7 @@ const PropertyCard = () => {
               maxWidth: "1200px",
               width:'100%',
               padding: "0 20px"
-            }}>
+            }} className="custom-card-sec">
               <h1 style={{
                 fontSize: "40px",
                 fontWeight: "bold",

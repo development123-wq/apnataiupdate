@@ -335,4 +335,32 @@ text-align: center;
 .custom-events-section{
   padding-bottom:0px !important;
 }
+.property-section h2{
+    font-size: 20px !important;
+
+}
+.property-newsec .featured-image{
+height:250px !important;
+}
+.property-newsec .property-features{
+  padding-left:0px !important;
+}
+.feature-item {
+gap:10px !important;
+
+}
+.icon-box{
+  width: 60px !important;;
+  height: 60px !important;;
+}
+.property-features:before{
+  left: 30px;
+  top:-38px;
+}
+.user-icon img{
+  padding:10px !important;
+}
+.feature-title-html h3{
+  font-size:20px !important;
+}
 }

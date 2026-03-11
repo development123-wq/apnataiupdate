@@ -150,4 +150,18 @@
     font-size: 12px !important;
     line-height:18px !important;
   }
+  .content-flex-container{
+    gap:20px !important;
+  }
+  .dark-cards-section {
+    padding: 30px 10px !important;
+  }
+  .dark-cards-section .card-title{
+
+    font-size: 20px !important;
+  }
+  .dark-cards-section .card-body span,.dark-cards-section .card-body{
+    font-size: 12px !important;
+
+  }
 }

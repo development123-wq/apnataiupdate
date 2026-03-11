@@ -171,6 +171,7 @@ margin:14px ;
 {
   .property-bg-two .slick-track{
     margin-left:0px !important;
+    gap:10px !important;
 
 
   }

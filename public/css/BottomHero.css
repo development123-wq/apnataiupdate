@@ -158,9 +158,13 @@
     
     .text-block {
         width: 100%; 
-        position: static; /* **CHANGED:** Absolute positioning hataya */
-        padding: 40px 25px;
+        
         background-color: rgba(28, 28, 42, 0.9);
+        height: 250px !important;
+    position: absolute !important;
+    bottom: 82px !important;
+    top: auto!important;
+    position:absolute !important;
     }
     
     .heading {
@@ -218,5 +222,6 @@ background:#181828!important;
 
 
     }
+   
 
 }

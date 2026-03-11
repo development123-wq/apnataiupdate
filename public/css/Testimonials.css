@@ -182,3 +182,25 @@ border:3px solid #00E2EE;
     text-align:left;
   }
 }
+@media(max-width:767px)
+{
+  .testidivcustom h3{
+    color:#000;
+    font-size:20px;
+  font-family: "Inter", sans-serif;
+  font-weight:600;
+
+
+  }
+  .testimonial-text p{
+    text-align:left;
+    font-size: 12px !important;
+  }
+  .testimonial-card-content{
+    width:100% !important;
+  }
+  .testimonial-image-wrapper{
+    width:110px !important;
+    height:110px !important;
+  }
+}

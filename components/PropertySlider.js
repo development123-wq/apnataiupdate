@@ -69,7 +69,7 @@ export default function PropertySlider() {
   if (loading) return null;
 
   return (
-    <section className="property-section property-section-home">
+    <section className="property-section property-section-home property-bg-two">
       <div className="property-bg">
         <Image src="/images/beach-bg1.jpg" alt="Background" fill priority />
       </div>

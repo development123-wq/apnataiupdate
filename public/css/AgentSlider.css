@@ -231,3 +231,20 @@
 .agent-contact-mobile{
   margin-top:5px!important;
 }
+
+@media(max-width:767px)
+{
+  .agent-card{
+    width:280px !important;
+
+  }
+  .agent-wrapper-two .slick-slide{
+    margin-right:5px !important;
+  }
+  .agent-card-wrapper:hover .agent-name{
+    font-size:22px !important;
+  }
+  .agent-contact-mobile a{
+    font-size:12px !important;
+  }
+}
